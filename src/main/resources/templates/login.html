@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/commonBody :: common('로그인')}">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -8,6 +8,8 @@
     <title>oauth</title>
 </head>
 <body>
-    <a href="/login/oauth2/code/google" role="button">Google Login</a>
+<th:block th:replace="~{fragments/commonBody :: header}"></th:block>
+<a th:href="@{/oauth2/authorization/google}" role="button" class="btn btn-success active">Google Login</a>
+<a th:href="@{/}" role="button" class="btn btn-danger">취소</a>
 </body>
 </html>
