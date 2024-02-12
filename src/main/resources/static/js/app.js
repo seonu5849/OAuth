@@ -6,7 +6,7 @@ const main = {
             _this.save();
         });
 
-        $('btn-update').on('click', function() {
+        $('#btn-update').on('click', function() {
             _this.update();
         });
     },
@@ -40,13 +40,13 @@ const main = {
 
         $.ajax({
             type: 'PUT',
-            url: `/api/v1/posts/{id}`,
+            url: `/api/v1/posts/${id}`,
             dataType: 'JSON',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
             alert('글이 수정되었습니다.');
-            location.herf="/";
+            location.href="/";
         }).fail(function(error) {
             alert(JSON.stringify(error));
         });
