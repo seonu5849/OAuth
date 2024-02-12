@@ -1,5 +1,6 @@
 package com.example.OAuth.controller;
 
+import com.example.OAuth.annotation.LoginUser;
 import com.example.OAuth.dto.SessionUser;
 import com.example.OAuth.dto.posts.PostsListResponseDto;
 import com.example.OAuth.dto.posts.PostsResponseDto;
@@ -20,12 +21,10 @@ import java.util.List;
 public class IndexController {
 
     private final PostsService postsService;
-    private final HttpSession session;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         List<PostsListResponseDto> posts = this.postsService.findAllDesc();
-        SessionUser user = (SessionUser) session.getAttribute("user");
 
         if(user != null){
             model.addAttribute("username", user.getName());
@@ -36,8 +35,13 @@ public class IndexController {
     }
 
     @GetMapping("/posts/save")
-    public String postsSave(Model model){
+    public String postsSave(Model model, @LoginUser SessionUser user){
         PostsResponseDto responseDto = new PostsResponseDto();
+
+        if(user != null){
+            responseDto.setAuthor(user.getName());
+        }
+
         model.addAttribute("post", responseDto);
         return "posts-save";
     }

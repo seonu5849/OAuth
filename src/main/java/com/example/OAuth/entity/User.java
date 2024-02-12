@@ -14,10 +14,10 @@ public class User extends BaseTimeEntity{
     @Id @GeneratedValue
     private Long id;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String email;
 
     @Column
