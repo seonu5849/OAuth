@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/commonBody :: common('메인페이지')}">
+    <meta charset="UTF-8">
+    <title>main</title>
+</head>
+<body>
+<th:block th:replace="~{fragments/commonBody :: header}"></th:block>
+<h1>스프링 부트로 시작하는 웹 서비스 Ver.2</h1>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/posts/save" role="button" class="btn btn-primary">글등록</a>
+        </div>
+    </div>
+    <br>
+<!-- 목록 출력 영역 -->
+<table class="table table-horizontal table-boardered">
+    <thead class="thead-strong">
+        <tr>
+            <th>게시글번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>최종수정일</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        <tr th:each="post : ${posts}">
+            <td th:text="${post.id}"></td>
+            <td><a th:href="@{/posts/update/{id}(id=${post.id})}" th:text="${post.title}"></a></td>
+            <td th:text="${post.author}"></td>
+            <td th:text="${post.modifiedDate}"></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<th:block th:replace="~{fragments/footer :: footer}"></th:block>
+</body>
+</html>
