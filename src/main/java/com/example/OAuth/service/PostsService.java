@@ -1,6 +1,6 @@
 package com.example.OAuth.service;
 
-import com.example.OAuth.dto.posts.PostUpdateRequestDto;
+import com.example.OAuth.dto.posts.PostsUpdateRequestDto;
 import com.example.OAuth.dto.posts.PostsListResponseDto;
 import com.example.OAuth.dto.posts.PostsResponseDto;
 import com.example.OAuth.dto.posts.PostsSaveRequestDto;
@@ -25,7 +25,7 @@ public class PostsService {
 
     // Setter를 만들지 않았기 때문에 엔티티의 값을 변경해줄 메소드를 엔티티 클래스에 생성
     @Transactional
-    public Long update(Long id, PostUpdateRequestDto requestDto) {
+    public Long update(Long id, PostsUpdateRequestDto requestDto) {
         Posts posts = this.postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
         posts.update(requestDto.getTitle(), requestDto.getContent());
 
