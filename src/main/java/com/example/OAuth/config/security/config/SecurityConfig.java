@@ -34,7 +34,7 @@ public class SecurityConfig {
                 // 특정 URL에 대한 권한 설정
                 .requestMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
 //                    .requestMatchers("/css/**", "/images/**", "/js/**", "/h2-console/**").authenticated() // 이 URL들은 permitAll() 옵션으로 전체 열람 권한
-                .requestMatchers("/api/v1/**").hasRole(Role.USER.name()) // 이 URL은 USER 권한을 가진 사람만 열람 가능하도록 함.
+//                .requestMatchers("/api/v1/**").hasRole(Role.USER.name()) // 이 URL은 USER 권한을 가진 사람만 열람 가능하도록 함.
 //                .anyRequest().authenticated(); // anyRequest는 나머지 URL들을 의미하며, authenticated()을 추가하여 나머지 URL들은 모두 인증된 사용자들에게만 허용하도록 함. (로그인한 유저만)
                     .anyRequest().permitAll();
             });
