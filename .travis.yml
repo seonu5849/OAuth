@@ -1,0 +1,21 @@
+language: java
+jdk:
+  - oraclejdk-lts
+
+branches: # -- 1
+  only:
+    - master
+
+#Travis CI 서버의 Home
+cache: # -- 2
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+    -
+script: "./gradlew clean build" # --3
+
+# CI 실행 완료시 메일로 알람
+notifications: # --4
+  email:
+    recipients:
+      - tjsdn22@naver.com
