@@ -33,7 +33,7 @@ deploy: # -- 5
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings 에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings 에 설정된 값
     bucket: freelec-springboot3-buildd # S3 버킷 이름
-    region: ap-northheast-2
+    region: ap-northeast-2
     skip_cleanup: true
     acl: private # zip 파일 접근을 private으로
     local_dir: deploy # before_deploy에서 생성한 디렉토리 # -- 6
