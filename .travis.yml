@@ -6,6 +6,10 @@ branches: # -- 1
   only:
     - main
 
+# 빌드 전에 gradlew의 권한을 추가한다.
+before_install:
+  - chmod +x gradlew
+
 #Travis CI 서버의 Home
 cache: # -- 2
   directories:
