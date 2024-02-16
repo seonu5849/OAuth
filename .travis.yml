@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - oraclejdk-lts
+  - openjdk17
 
 branches: # -- 1
   only:
