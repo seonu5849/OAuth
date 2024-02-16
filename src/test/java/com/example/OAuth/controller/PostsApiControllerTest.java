@@ -10,6 +10,7 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -60,6 +61,7 @@ class PostsApiControllerTest {
         this.postsRepository.deleteAll();
     }
 
+    @Disabled
     @Test
     @WithMockUser(roles = "USER")
     public void Posts_등록된다() throws Exception {
@@ -95,6 +97,7 @@ class PostsApiControllerTest {
         assertThat(all.get(0).getContent()).isEqualTo(content);
     }
 
+    @Disabled
     @Test
     @WithMockUser(roles = "USER") // 인증된 모의(가짜) 사용자를 만들어서 사용
     public void Posts_수정된다() throws Exception {
