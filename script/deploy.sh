@@ -34,7 +34,6 @@ chmod +x $JAR_NAME # -- 2
 echo "> $JAR_NAME 실행"
 
 nohup java -jar \
-  -Dspring.config.location=classpath:/application.properties, # 내부의 application.properties 추가
-  classpath:/application-real.properties,/home/ubuntu/app/application-oauth.properties,/home/ubuntu/app/application-real-db.properties  \
+  -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ubuntu/app/application-oauth.properties,/home/ubuntu/app/application-real-db.properties  \
   -Dspring.profiles.active=real \
   $JAR_NAME > $REPOSITORY/nohup.out 2>&1 & # -- 3
