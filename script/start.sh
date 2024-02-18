@@ -7,6 +7,9 @@ source ${ABSDIR}/profile.sh
 REPOSITORY=/home/ubuntu/app/step3
 PROJECT_NAME=OAuth
 
+echo "> 이전 Build 파일 삭제"
+rm $REPOSITORY/OAuth*.jar
+
 echo "> Build 파일 복사"
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
