@@ -2,17 +2,27 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/app/step2/zip/
+    destination: /home/ubuntu/app/step3/zip/
     overwrite: yes
 
-permissions: # -- 1
+permissions:
   - object: /
     pattern: "**"
     owner: ubuntu
     group: ubuntu
 
 hooks:
-  ApplicationStart: # -- 2
-    - location: deploy.sh
+  AfterInstall:
+    - location: stop.sh # 엔진엑스와 연결되어 있지 않는 스프링 부트를 종료
       timeout: 60
       runas: ubuntu
+
+  ApplicationStart:
+    - location: start.sh # 엔진엑스와 연결되어 있지 않은 Port로 새 버전의 스프링 부트를 시작
+      timeout: 60
+      runas: ubuntu
+
+  ValidateService:
+     - location: health.sh # 새 스프링 부트가 정상적으로 실행됐는지 확인
+       timeout: 60
+       runas: ubuntu
