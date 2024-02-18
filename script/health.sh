@@ -34,6 +34,6 @@ do
       exit 1
   fi
 
-  echo "> Health check 연결 실패, 재시고..."
+  echo "> Health check 연결 실패, 재시도..."
   sleep 10
 done

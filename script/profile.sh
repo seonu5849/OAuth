@@ -22,15 +22,16 @@ function finc_idle_profile() {
 
     echo "${IDLE_PROFILE}" # -- 3
 
-    # 쉬고 있는 profile의 port 찾기
-    function find_idle_port() {
-      IDLE_PROFILE=$(find_idle_profile)
+}
 
-      if [ ${IDLE_PROFILE} == real1 ]
-      then
-        echo "8081"
-      else
-        echo " 8082"
-      fi
-    }
+# 쉬고 있는 profile의 port 찾기
+function find_idle_port() {
+  IDLE_PROFILE=$(find_idle_profile)
+
+  if [ ${IDLE_PROFILE} == real1 ]
+  then
+    echo "8081"
+  else
+    echo " 8082"
+  fi
 }
